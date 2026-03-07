@@ -1,6 +1,5 @@
 header {
     display: flex;
-
     align-items: center;
     padding: 1rem 2rem;
     color: var(--color-white);
@@ -9,6 +8,7 @@ header {
     margin: 1rem auto 0;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
+    font-family: var(--font-secondary);
 
     
     .header-logo {
@@ -23,5 +23,8 @@ header {
         gap: 1rem;
         flex: 1;
         justify-content: flex-end;
+    }
+    .header-actions a {
+        color: var(--color-white);
     }
 }

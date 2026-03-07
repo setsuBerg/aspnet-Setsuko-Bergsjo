@@ -1,6 +1,9 @@
 import Navbar from "./Navbar";
 import "./Header.css"
 import Logo from "../images/logotype.svg"
+import { Link } from "react-router-dom"
+import Button from "../components/Button";
+
 
 export default function Header() {
     return (
@@ -13,7 +16,9 @@ export default function Header() {
             <Navbar />
 
             <div className="header-actions"> 
-                <div>Auth</div>
+                <Link to="/signup">Become Member</Link>
+
+                <Button>Sign In</Button>
             </div>
 
         </header>

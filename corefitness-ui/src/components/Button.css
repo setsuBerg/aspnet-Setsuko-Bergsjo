@@ -1,0 +1,20 @@
+.btn {
+    background-color: var(--bg-color-accent);
+    color: var(--color-text-primary);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+    
+    img {
+        margin-left: .6rem;
+       
+    }
+}
