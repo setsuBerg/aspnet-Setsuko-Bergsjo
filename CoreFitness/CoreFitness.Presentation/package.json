@@ -1,0 +1,17 @@
+{
+  "name": "corefitness.presentation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css --watch",
+    "build": "tailwindcss -i ./wwwroot/css/input.css -o ./wwwroot/css/output.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
+  }
+}

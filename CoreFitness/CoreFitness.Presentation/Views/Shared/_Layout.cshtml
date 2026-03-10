@@ -7,11 +7,14 @@
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CoreFitness.Presentation.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/output.css" />
 </head>
 
 <body>
     <div class="wrapper">
-        <header>Header</header>
+        <header>
+            <partial name="Partials/_Header" />
+        </header>
         <main>
             @RenderBody()
         </main>
