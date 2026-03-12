@@ -11,21 +11,26 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@title</title>  
+    <title>@pageTitle</title>  
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/output.css" />
+    <!-- <link rel="stylesheet" href="~/css/output.css" /> -->
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="app-layout">
         <header>
-            <partial name="Partials/_Header" />
+            <partial name="Partials/_HeaderSection" />
+
+            @if (IsSectionDefined("Hero"))
+                @await RenderSectionAsync("Hero")
         </header>
         <main>
             @RenderBody()
         </main>
-        <footer>Footer</footer>
+        <footer>
+            <partial name="Partials/_FooterSection" />
+        </footer>
     </div>
 
 
