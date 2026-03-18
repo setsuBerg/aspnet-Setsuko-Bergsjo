@@ -1,6 +1,13 @@
+using Application.Extensions;
+using Infrastructure.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddRouting();
+
+builder.Services.AddInfrastructure(builder.Configuration, builder.Environment);
+builder.Services.AddApplication(builder.Configuration, builder.Environment);
 
 var app = builder.Build();
 

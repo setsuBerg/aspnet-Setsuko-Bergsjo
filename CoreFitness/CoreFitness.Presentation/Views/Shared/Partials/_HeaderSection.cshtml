@@ -1,0 +1,28 @@
+﻿<section class="header-section">
+    <div class="header-container">
+        <!--- Logo --->
+        <a asp-controller="Home" asp-action="Index" class="header-logo">
+            <img src="~/images/logotype.svg" alt="CoreFitness Club" /> 
+            
+        </a>
+
+        <!--- Navbar --->
+        <nav class="main-menu">
+            <ul class="menu">
+                <li class="menu-item"><a asp-controller="Fitness-centers" asp-action="Index">Fitness Centers</a></li>
+                <li class="menu-item"><a asp-controller="Memberships" asp-action="Index">Memberships</a></li>
+                <li class="menu-item"><a asp-controller="Training" asp-action="Index">Training</a></li>
+                <li class="menu-item"><a asp-controller="CustomerService" asp-action="Index">Customer Service</a></li>
+                <li class="menu-item"><a asp-controller="Store" asp-action="Index">Store</a></li>
+            </ul>
+        </nav>
+
+        <!--- Auth --->
+        <div class="header-actions">
+            <a asp-controller="Account" asp-action="SignUp" class="header-link">Become Member</a>
+            <a asp-controller="Account" asp-action="SignIn" class="btn">Sign In
+                <img src="~/images/arrow-right.svg" alt="arrow-right" />
+            </a>
+        </div>
+    </div>
+</section>
