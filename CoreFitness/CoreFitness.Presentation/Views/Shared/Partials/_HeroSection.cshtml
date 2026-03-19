@@ -1,3 +1,25 @@
-﻿<section class="hero-section">
-    hero-section
+﻿@using CoreFitness.Presentation.Models
+
+<section class="hero-section">
+
+    <div class="hero-container">
+        <div class="hero-content">
+            <p class="title"><span class="dot">•</span> Strong Body.Strong Mind.</p>
+            <h1 class="headline">Build Strength Boost<span>Confidence Today!</span></h1>
+            <p class="description">Begin your fitness journey with expert trainers, modern equipment, and a<span>supportive environment designed to help you build streangth and confidence.</span></p>
+
+            <ul>
+                <li><img src="~/images/hero-icons.svg" alt="Hero-icons" />Transform your body with training</li>
+                <li><img src="~/images/hero-icons.svg" /> Build confidence through fitness</li>
+                <li><img src="~/images/hero-icons.svg" /> Personal training for real results</li>
+                <li><img src="~/images/hero-icons.svg" /> Fitness tailored to your goals</li>
+            </ul>
+            <div class="horizon-line"></div>
+            <partial name="Partials/_Button" model='new ButtonModel { Text = "Get Started", Controller = "Account", Action = "SignUp" }' />
+        </div>
+
+        <div class="hero-img">
+            <img src="~/images/hero-image.svg" alt="Hero-photo" />
+        </div>
+    </div>
 </section>

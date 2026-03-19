@@ -4,6 +4,10 @@
 *, *::before, *::after {
     box-sizing: border-box;
 }
+body, h1, h2, h3, h4, h5, h6, p, ul, ol {
+    margin: 0;
+    padding: 0;
+}
 
 :root {
     --font-poppins: "Poppins", sans-serif;
@@ -54,6 +58,25 @@ footer {
     text-align: center;
     border-radius: 1.25rem;
     padding: 1rem;
+}
+
+.btn {
+    background-color: var(--bg-color-accent);
+    color: var(--color-text-primary);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    font-family: var(--font-dm-sans);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: .8rem;
+}
+
+.btn img {
+    margin-left: .6rem;
 }
 
 /*  header section  */
@@ -166,23 +189,85 @@ footer {
     }
 }
 
+/*  hero section  */
 
-.btn {
-    background-color: var(--bg-color-accent);
-    color: var(--color-text-primary);
-    border: none;
-    padding: 0.7rem 1.5rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-family: var(--font-dm-sans);
-    font-size: 1rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: .8rem;
+.hero-section {
+    border-top: 1px solid #68695e;
+
+
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        justify-items:flex-end;
+
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            max-width: 40rem;
+            gap: 1rem;
+            width: fit-content;
+            justify-items: flex-end;
+
+            .title {
+                display: inline-flex;
+                align-items: center;
+                gap: .5rem;
+                background-color: var(--color-text-primary);
+                border-radius: 1.8rem;
+                width: fit-content;
+                padding: .4rem .8rem;
+                font-size: .9rem;
+                font-weight: 500;
+
+
+                .dot {
+                    color: var(--bg-color-accent);
+                }
+            }
+
+            .headline {
+                font-size: 3.4rem;
+                font-weight: 700;
+            }
+
+            ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: .8rem;
+                list-style: none;
+                padding-left: 0;
+                margin: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: .5rem;
+
+                    img {
+                    }
+                }
+            }
+
+            .horizon-line {
+                border-top: 1px solid #68695e;
+            }
+
+            .btn {
+                width: fit-content;
+            }
+
+            .title span, .headline span, .description span {
+                display: block;
+            }
+        }
+
+        .hero-img {
+            width: 100%;
+            display: block;
+            height: auto;
+            margin-left: auto;
+        }
+    }
 }
-
-.btn img {
-    margin-left: .6rem;
-}
-
