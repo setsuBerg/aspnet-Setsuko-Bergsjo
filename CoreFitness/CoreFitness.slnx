@@ -1,3 +1,7 @@
 <Solution>
+  <Project Path="Application/Application.csproj" Id="c4823c59-6b5f-45fe-87c7-123885ea0d36" />
   <Project Path="CoreFitness.Presentation/CoreFitness.Presentation.csproj" />
+  <Project Path="Domain/Domain.csproj" Id="5bc93f90-037f-4555-b21b-1f8f1b601b6e" />
+  <Project Path="Infrastructure/Infrastructure.csproj" Id="1f453688-322b-40c2-839e-5dfdd0a57139" />
+  <Project Path="Tests/Tests.csproj" Id="55f5efff-eed6-4450-8b9f-553795e4ec4d" />
 </Solution>
