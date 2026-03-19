@@ -1,24 +1,36 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var title = ViewData["Title"]?.ToString();
+    var pageTitle = string.IsNullOrWhiteSpace(title)
+        ? "CoreFitness Club | Gym & Fitness"
+        : $"{title} | CoreFitness Club";
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@string.IsNullOrEmpty(ViewData["Title"] as string) ? "CoreFitness.Presentation" : ViewData["Title"] + " - CoreFitness Club"</title>  
+    <title>@pageTitle</title>  
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CoreFitness.Presentation.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/output.css" />
+    <!-- <link rel="stylesheet" href="~/css/output.css" /> -->
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="app-layout">
         <header>
-            <partial name="Partials/_Header" />
+            <partial name="Partials/_HeaderSection" />
+
+            @if (IsSectionDefined("Hero"))
+                @await RenderSectionAsync("Hero")
         </header>
         <main>
             @RenderBody()
         </main>
-        <footer>Footer</footer>
+        <footer>
+            <partial name="Partials/_FooterSection" />
+        </footer>
     </div>
 
 

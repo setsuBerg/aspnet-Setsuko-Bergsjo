@@ -1,0 +1,19 @@
+﻿@model MembershipViewModel
+
+@{
+    ViewData["Title"] = "Our Memberships";
+}
+
+<div>
+    @foreach (var item in Model.Memberships)
+    {
+        <div>
+            @item.Title
+            @item.Description
+            @item.Price
+            @item.Benefits
+            @item.Price
+            @item.MonthlyClasses
+        </div>
+    }
+</div>

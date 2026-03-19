@@ -1,0 +1,8 @@
+﻿@using CoreFitness.Presentation.Models
+@model ButtonModel
+
+<a asp-controller="@Model.Controller" asp-action="@Model.Action" class="btn">
+    @Model.Text
+    <img src="~/images/arrow-right.svg" alt="arrow-right" />
+</a>
+
