@@ -271,3 +271,18 @@ footer {
         }
     }
 }
+
+/* layouts */
+.app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    padding: 1rem;
+}
+
+.auth-layout {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+    padding: 1rem;
+}

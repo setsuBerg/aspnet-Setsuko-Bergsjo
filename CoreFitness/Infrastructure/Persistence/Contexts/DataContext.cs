@@ -1,4 +1,4 @@
-﻿using Infrastructure.Persistence.Entities;
+﻿using Infrastructure.Persistence.Entities.Memberships;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Contexts;

@@ -2,19 +2,21 @@
 
 namespace CoreFitness.Presentation.Controllers;
 
-public class AccountController : Controller
+public class AuthenticationController : Controller
 {
     public IActionResult SignIn()
     {
         return View();
     }
-
-    public IActionResult SignUp()
+    public IActionResult RegisterEmail()
     {
         return View();
     }
-
-    public IActionResult My()
+    public IActionResult RegisterPassword()
+    {
+        return View();
+    }
+    public IActionResult RegisterProfile()
     {
         return View();
     }
