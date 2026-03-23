@@ -20,8 +20,8 @@
 
         <!--- Auth --->
         <div class="header-actions">
-            <a asp-controller="Account" asp-action="SignUp" class="header-link">Become Member</a>
-            <partial name="Partials/_Button" model='new ButtonModel { Text = "Sign In", Controller = "Account", Action = "SignIn" }' />
+            <a asp-controller="Authentication" asp-action="SignUp" class="header-link">Become Member</a>
+            <partial name="Partials/_Button" model='new ButtonModel { Text = "Sign In", Controller = "Authentication", Action = "SignIn" }' />
         </div>
     </div>
 </section>

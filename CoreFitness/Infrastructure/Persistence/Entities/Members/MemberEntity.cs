@@ -10,8 +10,8 @@ public sealed class MemberEntity
     public string? LastName { get; set; }
     public string? PhoneNumber { get; set; }
     public string? ProfileImageUri { get; set; }
-    public DateTimeOffset CreateAt { get; set; }
+    public DateTimeOffset CreatedAt { get; set; }
     public DateTimeOffset? ModifiedAt { get; set; }
     public ApplicationUser User { get; set; } = null!;
-
+    public string? ProfileImageUrí { get; internal set; }
 }

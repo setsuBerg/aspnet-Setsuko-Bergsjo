@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Account\" />
-    <Folder Include="Models\Authentication\" />
     <Folder Include="wwwroot\fonts\" />
   </ItemGroup>
 

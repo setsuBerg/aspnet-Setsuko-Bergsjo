@@ -31,7 +31,7 @@ public class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity>
         builder.Property(x => x.ProfileImageUri)
             .HasMaxLength(500);
 
-        builder.Property(x => x.CreateAt)
+        builder.Property(x => x.CreatedAt)
             .IsRequired();
 
         builder.Property(x => x.ModifiedAt);

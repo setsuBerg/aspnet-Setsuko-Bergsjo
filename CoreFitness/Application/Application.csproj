@@ -14,13 +14,11 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.5" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.5" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.9.3" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Memberships\Inputs\" />
-    <Folder Include="Inputs\" />
-    <Folder Include="Members\" />
-    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

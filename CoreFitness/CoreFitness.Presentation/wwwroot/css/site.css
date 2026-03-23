@@ -286,3 +286,130 @@ footer {
     height: 100vh;
     padding: 1rem;
 }
+
+
+
+
+/* SignIn, SignUp, SetPassword Pages */
+
+.auth-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 78vh;
+    margin-top: 5rem;
+    margin-bottom: 5rem;
+
+
+    .auth-form {
+        background-color: var(--color-white);
+        border-radius: 1rem;
+        padding: 3rem;
+        width: 100%;
+        max-width: 46rem;
+    }
+
+    .title {
+        font-size: 3.5rem;
+        font-weight: 500;
+    }
+
+    .information {
+        font-size: .85rem;
+        margin-bottom: 2rem;
+    }
+
+    .logo-img {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 4.5rem 0;
+    }
+
+    .horizon-text {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin: 1.5rem 0;
+
+        span {
+            flex: 1;
+            height: 1px;
+            background-color: var(--color-text-muted);
+        }
+
+        p {
+            font-family: var(--font-dm-sans);
+            color: var(--color-text-muted);
+        }
+    }
+
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        .password-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .forgot-password {
+                display: flex;
+                justify-content: flex-end;
+                font-size: .8rem;
+                color: var(--bg-color-accent);
+            }
+        }
+    }
+
+    .form-input {
+        padding: 1rem;
+        border-radius: .5rem;
+        border: none;
+        background-color: var(--bg-color-primary);
+    }
+
+    .form-group.checkbox {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        align-items: center;
+        gap: .5rem;
+
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .form-button {
+        background-color: var(--bg-color-accent);
+        color: var(--color-text-primary);
+        border: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 2rem;
+        cursor: pointer;
+        font-family: var(--font-dm-sans);
+        font-size: 1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: .8rem;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .additional-information {
+        font-size: .8rem;
+        text-align: center;
+        margin-top: 2rem;
+
+        a {
+            text-decoration: underline;
+            color: var(--bg-color-accent);
+        }
+    }
+}
+
