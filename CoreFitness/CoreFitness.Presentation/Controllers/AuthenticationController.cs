@@ -37,9 +37,9 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
         return RedirectToAction("My", "Account");
     }
 
-    [HttpPost("sign-out")]
+    [HttpPost("log-out")]
     [ValidateAntiForgeryToken]
-    public new async Task<IActionResult> SignOut() 
+    public async Task<IActionResult> LogOut() 
     {
         await identityService.SignOutAsync();
         return RedirectToAction("Index", "Home");
@@ -71,38 +71,48 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
         if (string.IsNullOrWhiteSpace(email))
             return RedirectToAction(nameof(SignUp));
 
-        return View(new RegisterEmailForm());
+        return View(new RegisterPasswordForm());
     }
 
     [HttpPost("set-password")]
 
     public async Task<IActionResult> SetPassword(RegisterPasswordForm form, CancellationToken ct = default)
     {
-        var email = HttpContext.Session.GetString(RegistrationEmailSessionKey);
-        if (string.IsNullOrWhiteSpace(email))
-            return RedirectToAction(nameof(SignUp));
-
-        if (!ModelState.IsValid)
-            return View(form);
-
-        var registerMemberInput = new RegisterMemberInput(email, form.Password);
-        var registerResult = await registerMemberService.ExecuteAsync(registerMemberInput, ct);
-        if (!registerResult.Success) 
+        try
         {
-            ViewData["ErrorMessage"] = registerResult.ErrorMessage;
-            return View(form);
+            var email = HttpContext.Session.GetString(RegistrationEmailSessionKey);
+            if (string.IsNullOrWhiteSpace(email))
+                return RedirectToAction(nameof(SignUp));
+
+            if (!ModelState.IsValid)
+                return View(form);
+
+            var registerMemberInput = new RegisterMemberInput(email, form.Password);
+            var registerResult = await registerMemberService.ExecuteAsync(registerMemberInput, ct);
+            if (!registerResult.Success)
+            {
+                return Content(registerResult.ErrorMessage + " | " + registerResult);
+
+                /*ViewData["ErrorMessage"] = registerResult.ErrorMessage;
+                return View(form);*/
+            }
+
+            var signInMemberInput = new SignInInput(email, form.Password, false);
+
+            var signInResult = await signInMemberService.ExecuteAsync(signInMemberInput, ct);
+            if (!signInResult.Success)
+            {
+                ViewData["ErrorMessage"] = ("The account was created, but sign in failed");
+                return View(form);
+            }
+
+            HttpContext.Session.Remove(RegistrationEmailSessionKey);
+            return RedirectToAction("My", "Account");
         }
-
-        var signInMemberInput = new SignInInput(email, form.Password, false);
-
-        var signInResult = await signInMemberService.ExecuteAsync(signInMemberInput, ct);
-        if (!signInResult.Success)
+        catch (Exception ex) 
         {
-            ViewData["ErrorMessage"] = "The account was created, but sign in failed";
-            return View(form);
+            return Content(ex.ToString());
         }
-
-        HttpContext.Session.Remove(RegistrationEmailSessionKey);
-        return RedirectToAction("My", "Account");
     }
+        
 }

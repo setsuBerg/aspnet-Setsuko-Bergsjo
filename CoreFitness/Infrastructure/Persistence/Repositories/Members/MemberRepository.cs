@@ -38,8 +38,8 @@ public class MemberRepository(DataContext context) : RepositoryBase<Member, stri
             FirstName = model.FirstName,
             LastName = model.LastName,
             PhoneNumber = model.PhoneNumber,
-            ProfileImageUrí = model.ProfileImageUri,
-            CreatedAt = model.CreateAt,
+            ProfileImageUri = model.ProfileImageUri,
+            CreatedAt = model.CreatedAt,
             ModifiedAt = model.ModifiedAt
         };
 

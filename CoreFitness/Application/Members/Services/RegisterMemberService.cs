@@ -23,6 +23,7 @@ public class RegisterMemberService(IIdentityService identityService, IMemberRepo
             var member = Member.Create(createUserResult.Value);
 
             await memberRepository.AddAsync(member, ct);
+
             return Result<string?>.Ok(member.UserId);
         }
         catch (Exception ex)

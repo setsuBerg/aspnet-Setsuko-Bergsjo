@@ -9,7 +9,7 @@ public class Member
     public string? LastName { get; private set; }
     public string? PhoneNumber { get; private set; }
     public string? ProfileImageUri { get; private set; }
-    public DateTimeOffset CreateAt { get; private set; }
+    public DateTimeOffset CreatedAt { get; private set; }
     public DateTimeOffset? ModifiedAt { get; private set; }
 
     private Member() 
@@ -20,7 +20,7 @@ public class Member
     {
         Id = id;
         UserId = userId;
-        CreateAt = createAt;
+        CreatedAt = createAt;
     }
 
     public static Member Create(string userId)

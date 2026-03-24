@@ -37,7 +37,7 @@ public class MemberEntityConfiguration : IEntityTypeConfiguration<MemberEntity>
         builder.Property(x => x.ModifiedAt);
 
         builder
-            .HasOne<ApplicationUser>()
+            .HasOne(x => x.User)
             .WithOne(x => x.Member)
             .HasForeignKey<MemberEntity>(x => x.UserId)
             .OnDelete(DeleteBehavior.Cascade);

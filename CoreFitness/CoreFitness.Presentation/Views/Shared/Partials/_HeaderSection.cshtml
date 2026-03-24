@@ -18,10 +18,19 @@
             </ul>
         </nav>
 
-        <!--- Auth --->
+        <!--- Auth ---> 
+
         <div class="header-actions">
-            <a asp-controller="Authentication" asp-action="SignUp" class="header-link">Become Member</a>
-            <partial name="Partials/_Button" model='new ButtonModel { Text = "Sign In", Controller = "Authentication", Action = "SignIn" }' />
+            @if (User.Identity?.IsAuthenticated ?? false)
+            {
+                <a asp-controller="Training" asp-action="Index" class="header-link">Our Classes</a>
+                <partial name="Partials/_Button" model='new ButtonModel { Text = "My Account", Controller = "Account", Action = "My" }' />
+            }
+            else
+            {
+                <a asp-controller="Authentication" asp-action="SignUp" class="header-link">Become Member</a>
+                <partial name="Partials/_Button" model='new ButtonModel { Text = "Sign In", Controller = "Authentication", Action = "SignIn" }' />
+            }
         </div>
     </div>
 </section>
