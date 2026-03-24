@@ -1,0 +1,26 @@
+﻿@using CoreFitness.Presentation.Models
+@model RegisterEmailForm
+@{
+    Layout = "Layouts/_AuthLayout";
+    ViewData["Title"] = "Become a Member";
+}
+
+<section class="auth-section">
+    <form class="auth-form" asp-action="SignUp" asp-controller="Authentication" method="post" novalidate>
+        <h1 class="title">Becom a Member</h1>
+        <p class="information">Sign up to continue your fitness journey with full access to your customized program, training history, and progress tracking. Stay consistent, monitor your development, and keep moving forward with the structure and support built into your account.</p>
+        <hr />
+
+        <div class="form-group">
+            <label class="form-label" asp-for="Email">Email Address</label>
+            <input class="form-input" asp-for="Email" />
+            <span class="filed-validation-error" asp-validation-for="Email"></span>
+        </div>
+
+        <button class="form-button" type="submit">Continue<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+
+        <div class="additional-information">
+            <p>We will send a verification code to your email address.</p>
+        </div>
+    </form>
+</section>

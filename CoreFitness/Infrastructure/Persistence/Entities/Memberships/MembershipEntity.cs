@@ -1,4 +1,6 @@
-﻿namespace Infrastructure.Persistence.Entities;
+﻿using Infrastructure.Identity;
+
+namespace Infrastructure.Persistence.Entities.Memberships;
 
 public sealed class MembershipEntity
 {

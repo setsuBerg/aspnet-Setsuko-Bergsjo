@@ -1,8 +1,9 @@
-﻿using Infrastructure.Persistence.Entities;
+﻿
+using Infrastructure.Persistence.Entities.Memberships;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Persistence.Configurations;
+namespace Infrastructure.Persistence.Configurations.Memberships;
 
 internal class MembershipConfiguration : IEntityTypeConfiguration<MembershipEntity>
 {

@@ -1,0 +1,85 @@
+﻿@model MyAccountViewModel
+@{
+    ViewData["Title"] = "My Account";
+}
+
+<div class="container">
+
+    <partial name="Partials/_PageTitleSection" />
+
+    <section class="my-account-section">
+
+        <aside class="my-account-sidebar">
+            <div class="profile-image"><img src="~/images/my-trainer.svg" alt="my-trainer" /></div>
+            <nav class="my-account-nav">
+                <ul class="menu-options">
+                    <li>
+                        <a class="my-menu" asp-controller="Account" asp-action="My">About Me<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
+                    </li>
+                    <li>
+                        <a class="my-menu" asp-controller="Memberships" asp-action="Index">My Membership<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
+                    </li>
+                    <li>
+                        <a class="my-menu">My Bookings<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
+                    </li>
+                    <li>
+                        <form method="post" asp-action="LogOut" asp-controller="Authentication">
+                            @Html.AntiForgeryToken()
+                            <button class="my-button" type="submit">Sign Out<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <div class="about-me-form-section">
+            <form class="about-me-form" asp-action="My" asp-controller="Account" method="post" novalidate>
+                <h2 class="title">About Me</h2>
+                <hr />
+
+                @if (!string.IsNullOrWhiteSpace(ViewData["Message"]?.ToString()))
+                {
+                    if (ViewData["MessageType"]?.ToString() == "error")
+                    {
+                        <div class="error-message">
+                            <p>@ViewData["Message"]</p>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="success-message">
+                            <p>@ViewData["Message"]</p>
+                        </div>
+                    }
+                }
+                <div class="form-group">
+                    <label class="form-label" asp-for="AboutMeForm.FirstName"></label>
+                    <input class="form-input" asp-for="AboutMeForm.FirstName" />
+                    <span class="field-validation-error" asp-validation-for="AboutMeForm.FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="AboutMeForm.LastName"></label>
+                    <input class="form-input" asp-for="AboutMeForm.LastName" />
+                    <span class="field-validation-error" asp-validation-for="AboutMeForm.LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="Email"></label>
+                    <input class="form-input" asp-for="Email" disabled />
+                </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="AboutMeForm.PhoneNumber"></label>
+                    <input class="form-input" asp-for="AboutMeForm.PhoneNumber" />
+                    <span class="field-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" asp-for="AboutMeForm.ProfileImageUri"></label>
+                    <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" />
+                    <span class="field-validation-error" asp-validation-for="AboutMeForm.ProfileImageUri"></span>
+                </div>
+
+                <button class="form-button" type="submit">Save<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+
+            </form>
+        </div>
+    </section>
+</div>

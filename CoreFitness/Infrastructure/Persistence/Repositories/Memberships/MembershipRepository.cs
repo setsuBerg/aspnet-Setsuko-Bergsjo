@@ -1,9 +1,9 @@
 ﻿using Domain.Abstractions.Repositories;
 using Domain.Aggregates.Memberships;
 using Infrastructure.Persistence.Contexts;
-using Infrastructure.Persistence.Entities;
+using Infrastructure.Persistence.Entities.Memberships;
 
-namespace Infrastructure.Persistence.Repositories;
+namespace Infrastructure.Persistence.Repositories.Memberships;
 
 public sealed class MembershipRepository(DataContext context) : RepositoryBase<Membership, string, MembershipEntity, DataContext>(context), IMembershipRepository
 {
