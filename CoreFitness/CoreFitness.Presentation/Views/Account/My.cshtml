@@ -14,16 +14,20 @@
 
             <nav class="my-account-nav">
                 <h3 class="my-menu-title">Menu Options</h3>
+
                 <ul class="menu-options">
                     <li>
                         <a class="my-menu" asp-controller="Account" asp-action="My">About Me<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
                     </li>
+                    <hr />
                     <li>
                         <a class="my-menu" asp-controller="Memberships" asp-action="Index">My Membership<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
                     </li>
+                    <hr />
                     <li>
                         <a class="my-menu">My Bookings<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
                     </li>
+                    <hr />
                     <li>
                         <form method="post" asp-action="LogOut" asp-controller="Authentication">
                             @Html.AntiForgeryToken()
@@ -80,6 +84,7 @@
                     <input class="form-input" asp-for="AboutMeForm.PhoneNumber" />
                     <span class="field-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
                 </div>
+                <hr />
                 <div class="form-group">
                     <label class="form-label" asp-for="AboutMeForm.ProfileImageUri"></label>
                     <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" />
@@ -87,7 +92,6 @@
                 </div>
 
                 <button class="form-button" type="submit">Save<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
-
             </form>
         </div>
     </section>
