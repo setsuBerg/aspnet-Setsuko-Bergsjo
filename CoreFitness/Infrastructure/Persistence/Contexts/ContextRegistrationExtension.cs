@@ -13,19 +13,11 @@ public static class ContextRegistrationExtension
 
         if (env.IsDevelopment())
         {
-            services.AddSingleton<SqliteConnection>(_ => 
-            {
-                var connection = new SqliteConnection("DataSource=:memory:;");
-                connection.Open();
+            var connectionString = configuration.GetConnectionString("DefaultConnection") 
+                ?? throw new ArgumentNullException("DefaultConnection not found"); 
 
-                return connection;
-            });
-
-            services.AddDbContext<DataContext>((sp, options) => 
-            {
-                var connection = sp.GetRequiredService<SqliteConnection>();
-                options.UseSqlite(connection);
-            });
+            services.AddDbContext<DataContext>(options => 
+                options.UseSqlServer(connectionString));
         }
         else 
         {
@@ -40,8 +32,6 @@ public static class ContextRegistrationExtension
             });
 
         }
-
-
             return services;
     }
 }

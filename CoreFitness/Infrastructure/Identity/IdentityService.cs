@@ -21,7 +21,14 @@ public class IdentityService(UserManager<ApplicationUser> userManager, SignInMan
 
     public async Task<Result<bool>> PasswordSignInAsync(string email, string password, bool rememberMe, CancellationToken ct = default)
     {
-        var result = await signInManager.PasswordSignInAsync(email, password, rememberMe, false);
+        var user = await userManager.FindByEmailAsync(email);
+        if (user is null)
+            return Result<bool>.Error("Invalid email or password");
+
+        var result = await signInManager.PasswordSignInAsync(user, password, rememberMe, false);
+
+        /*var result = await signInManager.PasswordSignInAsync(email, password, rememberMe, false);*/
+
         return !result.Succeeded ? Result<bool>.Error("Invalid email or password") : Result<bool>.Ok(true);
     }
 

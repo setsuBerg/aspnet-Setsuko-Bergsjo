@@ -1,4 +1,5 @@
-﻿using Application.Members.Abstractions;
+﻿using Application.Abstractions.Identity;
+using Application.Members.Abstractions;
 using Application.Members.Inputs;
 using CoreFitness.Presentation.Models.Account;
 using Infrastructure.Identity;
@@ -14,7 +15,8 @@ public class AccountController
     (
         UserManager<ApplicationUser> userManager,
         IGetMemberProfileService getMemberProfileService,
-        IUpdateMemberProfileService updateMemberProfileService
+        IUpdateMemberProfileService updateMemberProfileService,
+        IIdentityService identityService
     ) : Controller
 {
     [HttpGet("my")]
@@ -77,5 +79,18 @@ public class AccountController
         ViewData["MessageType"] = "success";
 
         return View(viewModel);
+    }
+
+    [HttpPost("remove-account")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> RemoveAccount() 
+    {
+        var user = await userManager.GetUserAsync (User);
+        if (user is null)
+            return Challenge();
+
+        await userManager.DeleteAsync (user);
+        await identityService.SignOutAsync();
+        return RedirectToAction("Index", "Home");
     }
 }
