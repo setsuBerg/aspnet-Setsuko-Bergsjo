@@ -11,7 +11,9 @@
 
         <aside class="my-account-sidebar">
             <div class="profile-image"><img src="~/images/my-trainer.svg" alt="my-trainer" /></div>
+
             <nav class="my-account-nav">
+                <h3 class="my-menu-title">Menu Options</h3>
                 <ul class="menu-options">
                     <li>
                         <a class="my-menu" asp-controller="Account" asp-action="My">About Me<img src="~/images/arrow-right.svg" alt="arrow-right" /></a>
@@ -30,6 +32,13 @@
                     </li>
                 </ul>
             </nav>
+            <div class="my-account-delete">
+                <p class="delete-text">If you like to cancel your account click below</p>
+                <form method="post" asp-action="RemoveAccount">
+                    @Html.AntiForgeryToken()
+                    <button class="delete-link" type="submit">Remove Account</button>
+                </form>
+            </div>
         </aside>
 
         <div class="about-me-form-section">

@@ -79,8 +79,14 @@ footer {
     margin-left: .6rem;
 }
 
-/*  header section  */
+.page-title h1 {
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 500;
+    margin-top: 4rem;
+}
 
+/*  header section  */
 .header-container {
     display: grid;
     align-items: center;
@@ -272,6 +278,75 @@ footer {
     }
 }
 
+
+
+
+
+/* My Account - About Me */
+
+.container {
+
+
+    .my-account-section {
+        max-width: 1300px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+        gap: 2rem;
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @media (width >= 768px) {
+            grid-template-columns: 1fr 2fr;
+        }
+
+        @media (width >= 1300px) {
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .my-account-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            .my-account-nav {
+                background-color: var(--color-white);
+                border-radius: 2rem;
+                padding: 1.5rem;
+
+                .my-menu-title {
+                    background-color: var(--bg-color-accent);
+                    margin: .5rem;
+                }
+
+                .menu-options {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    .my-menu {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+
+                        .my-menu:hover {
+                            color: var(--bg-color-accent);
+                            cursor: pointer;
+                        }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
 /* layouts */
 .app-layout {
     display: grid;
@@ -286,9 +361,6 @@ footer {
     height: 100vh;
     padding: 1rem;
 }
-
-
-
 
 /* SignIn, SignUp, SetPassword Pages */
 
