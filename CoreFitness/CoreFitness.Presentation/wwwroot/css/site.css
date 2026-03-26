@@ -402,61 +402,125 @@ footer {
             }
         }
 
-        .about-me-form-section {
-            background-color: pink;       /* white */
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin: 0 1.5rem;
-
-            .about-me-form {
-                margin: 2rem 1.6rem;
-
-                .title {
-                    font-size: 3.5rem;
-                    font-weight: 500;
-                }
-
-                .form-group {
-                    gap: 1rem;
-                    margin: 1rem 0;
+        .my-account-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
 
 
-                    .form-label {
-                        font-size: .8rem;
+            .about-me-form-section {
+                background-color: var(--color-white);
+                border-radius: 1rem;
+                padding: 1.5rem 1.5rem 7rem;
+                margin: 0 1.5rem;
+
+
+                .about-me-form {
+                    margin: 2rem 1.6rem;
+
+                    .title {
+                        font-size: 3.4rem;
                         font-weight: 500;
-
                     }
 
-                    .form-input {
+                    .form-group {
+                        gap: 1rem;
+                        margin: 2rem 0;
+
+
+                        .form-label {
+                            font-size: .8rem;
+                            font-weight: 500;
+                            display: block;
+                            margin-bottom: .5rem;
+                        }
+
+                        .form-input {
+                            border: none;
+                            width: 100%;
+                            background-color: var(--bg-color-primary);
+                            border-radius: .5rem;
+                            padding: 1rem;
+                        }
+
+                        .field-validation-error {
+                            color: var(--color-text-disabled)
+                        }
+                    }
+
+                    .form-button {
+                        background-color: var(--bg-color-accent);
+                        color: var(--color-text-primary);
                         border: none;
-                        width: 100%;
-                        background-color: springgreen;  /*var(--bg-color-primary);*/
-                        border-radius: .5rem;
-                        padding: 1rem 0;
-                    }
+                        padding: 0.7rem 1.5rem;
+                        border-radius: 2rem;
+                        cursor: pointer;
+                        font-family: var(--font-dm-sans);
+                        font-size: 1rem;
+                        font-weight: 600;
+                        display: flex;
+                        align-items: center;
+                        gap: .8rem;
+                        margin-left: auto;
+                        margin-top: 3rem;
 
-                    .field-validation-error {
-                        color: var(--color-text-disabled)
+                        img {
+                            margin-left: .6rem;
+                        }
                     }
                 }
+            }
 
-                .form-button {
-                    background-color: var(--bg-color-accent);
-                    color: var(--color-text-primary);
-                    border: none;
-                    padding: 0.7rem 1.5rem;
-                    border-radius: 2rem;
-                    cursor: pointer;
-                    font-family: var(--font-dm-sans);
-                    font-size: 1rem;
-                    font-weight: 600;
-                    display: flex;
-                    align-items: center;
-                    gap: .8rem;
-                    margin-left: auto;
+            .my-statistics-section {
 
-                    img {
-                        margin-left: .6rem;
+                h2 {
+                    font-size: 3.2rem;
+                    font-weight: 500;
+                    margin: 3rem 0 1rem 2.5rem;
+
+                }
+
+                .my-statistics {
+                    background-color: var(--color-white);
+                    border-radius: 1rem;
+                    padding: 1.5rem;
+                    margin: 0 1.5rem;
+
+
+                    .statistics-item {
+                        margin: 2rem 1.6rem;
+
+
+                        .statistics-row {
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                        .progress-bar {
+                            width: 100%;
+                            height: .2rem;
+                            background-color: var(--bg-color-primary);
+                            border-radius: .4rem;
+                            overflow: hidden;
+
+                            .progress {
+                                height: 100%;
+                                background-color: var(--bg-color-accent);
+                                border-radius: .4rem;
+                            }
+
+                            .progress-90 {
+                                width: 90%;
+                            }
+
+                            .progress-50 {
+                                width: 50%;
+                            }
+
+                            .progress-70 {
+                                width: 70%;
+                            }
+                        }
                     }
                 }
             }

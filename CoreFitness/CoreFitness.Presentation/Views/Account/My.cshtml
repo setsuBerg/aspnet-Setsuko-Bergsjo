@@ -44,55 +44,90 @@
                 </form>
             </div>
         </aside>
+        <div class="my-account-content">
+            <div class="about-me-form-section">
+                <!-- About Me -->
+                <form class="about-me-form" asp-action="My" asp-controller="Account" method="post" novalidate>
+                    <h2 class="title">About Me</h2>
+                    <hr />
 
-        <div class="about-me-form-section">
-            <form class="about-me-form" asp-action="My" asp-controller="Account" method="post" novalidate>
-                <h2 class="title">About Me</h2>
-                <hr />
-
-                @if (!string.IsNullOrWhiteSpace(ViewData["Message"]?.ToString()))
-                {
-                    if (ViewData["MessageType"]?.ToString() == "error")
+                    @if (!string.IsNullOrWhiteSpace(ViewData["Message"]?.ToString()))
                     {
-                        <div class="error-message">
-                            <p>@ViewData["Message"]</p>
-                        </div>
+                        if (ViewData["MessageType"]?.ToString() == "error")
+                        {
+                            <div class="error-message">
+                                <p>@ViewData["Message"]</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="success-message">
+                                <p>@ViewData["Message"]</p>
+                            </div>
+                        }
                     }
-                    else
-                    {
-                        <div class="success-message">
-                            <p>@ViewData["Message"]</p>
-                        </div>
-                    }
-                }
-                <div class="form-group">
-                    <label class="form-label" asp-for="AboutMeForm.FirstName"></label>
-                    <input class="form-input" asp-for="AboutMeForm.FirstName" />
-                    <span class="field-validation-error" asp-validation-for="AboutMeForm.FirstName"></span>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" asp-for="AboutMeForm.LastName"></label>
-                    <input class="form-input" asp-for="AboutMeForm.LastName" />
-                    <span class="field-validation-error" asp-validation-for="AboutMeForm.LastName"></span>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" asp-for="Email"></label>
-                    <input class="form-input" asp-for="Email" disabled />
-                </div>
-                <div class="form-group">
-                    <label class="form-label" asp-for="AboutMeForm.PhoneNumber"></label>
-                    <input class="form-input" asp-for="AboutMeForm.PhoneNumber" />
-                    <span class="field-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
-                </div>
-                <hr />
-                <div class="form-group">
-                    <label class="form-label" asp-for="AboutMeForm.ProfileImageUri"></label>
-                    <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" />
-                    <span class="field-validation-error" asp-validation-for="AboutMeForm.ProfileImageUri"></span>
-                </div>
+                    <div class="form-group">
+                        <label class="form-label" asp-for="AboutMeForm.FirstName"></label>
+                        <input class="form-input" asp-for="AboutMeForm.FirstName" />
+                        <span class="field-validation-error" asp-validation-for="AboutMeForm.FirstName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" asp-for="AboutMeForm.LastName"></label>
+                        <input class="form-input" asp-for="AboutMeForm.LastName" />
+                        <span class="field-validation-error" asp-validation-for="AboutMeForm.LastName"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" asp-for="Email"></label>
+                        <input class="form-input" asp-for="Email" readonly />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" asp-for="AboutMeForm.PhoneNumber"></label>
+                        <input class="form-input" asp-for="AboutMeForm.PhoneNumber" />
+                        <span class="field-validation-error" asp-validation-for="AboutMeForm.PhoneNumber"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <label class="form-label" asp-for="AboutMeForm.ProfileImageUri"></label>
+                        <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" />
+                        <span class="field-validation-error" asp-validation-for="AboutMeForm.ProfileImageUri"></span>
+                    </div>
 
-                <button class="form-button" type="submit">Save<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
-            </form>
+                    <button class="form-button" type="submit">Save<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+                </form>
+            </div>
+            <div class="my-statistics-section">
+                <h2>My Statistics</h2>
+
+                <div class="my-statistics">
+                    <div class="statistics-item">
+                        <div class="statistics-row">
+                            <p>Check-In (last 30 days)</p>
+                            <p>25</p>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress progress-90"></div>
+                        </div>
+                    </div>
+                    <div class="statistics-item">
+                        <div class="statistics-row">
+                            <p>Weight Goal</p>
+                            <p>50%</p>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress progress-50"></div>
+                        </div>
+                    </div>
+                    <div class="statistics-item">
+                        <div class="statistics-row">
+                            <p>Current BMI</p>
+                            <p>27</p>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress progress-70"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </div>
