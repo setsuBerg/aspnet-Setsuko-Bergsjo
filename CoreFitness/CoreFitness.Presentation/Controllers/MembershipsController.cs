@@ -13,7 +13,7 @@ public class MembershipsController(IMembershipService service) : Controller
 
         var viewModel = new MembershipViewModel()
         {
-            Memberships = memberships
+            Memberships = memberships.OrderBy(x => x.Price).ToList() 
         };
 
         return View(viewModel);
