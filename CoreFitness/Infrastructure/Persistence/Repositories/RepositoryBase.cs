@@ -102,6 +102,4 @@ public abstract class RepositoryBase<TDomainModel, TId, TEntity, TDbContext>(TDb
             throw;
         }
     }
-
-    
 }

@@ -1,19 +1,57 @@
-﻿@model MembershipViewModel
+﻿@using CoreFitness.Presentation.Models
+@model MembershipViewModel
 
 @{
-    ViewData["Title"] = "Our Memberships";
+    ViewData["Title"] = "Our Membership Offers";
 }
 
-<div>
-    @foreach (var item in Model.Memberships)
-    {
-        <div>
-            @item.Title
-            @item.Description
-            @item.Price
-            @item.Benefits
-            @item.Price
-            @item.MonthlyClasses
+<div class="memberships-container">
+
+    <partial name="Partials/_PageTitleSection" />
+
+    <section class="membership-section">
+        <div class="membership-access">
+
+            @foreach (var item in Model.Memberships)
+            {
+
+                <div class="membership-card">
+                    <img src="~/images/dumbbell.svg" alt="" />
+
+                    <h3>@item.Title</h3>
+                    <p>@item.Description</p>
+
+                    <ul>
+                        @foreach (var benefit in item.Benefits)
+                        {
+                            <li><img src="~/images/check-icon.svg" alt="" />@benefit</li>
+                        }
+                    </ul>
+
+                    <p>@item.Price</p>
+                    <p>@item.MonthlyClasses</p>
+
+                    <partial name="Partials/_Button" model='new ButtonModel { Text = "Join Now", Controller = "Memberships", Action = "Index" }' />
+                </div>
+            }
+
+            <div class="membership-card">
+                <h3>Get Your Membership</h3>
+                <p class="description">Our memberships give you access to all equipment, personalized training.</p>
+                <p>Call Us At: +(46) 8 410 521 00</p>
+
+                <partial name="Partials/_Button" model='new ButtonModel { Text = "Call Us Today!", Controller = "CustomerService", Action = "Index" }' />
+
+                <img src="~/images/membership-woman.svg" alt="" />
+
+            </div>
         </div>
-    }
+
+        <ul class="membership-subitems">
+            <li><img src="~/images/memberships-icon1.svg" alt="" />Get 30 day free trial</li>
+            <li><img src="~/images/memberships-icon2.svg" alt="" />No any hidden fees pay</li>
+            <li><img src="~/images/memberships-icon3.svg" alt="" />You can cancel anytime</li>
+        </ul>
+
+    </section>
 </div>

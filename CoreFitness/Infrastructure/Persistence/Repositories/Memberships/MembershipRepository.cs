@@ -2,6 +2,7 @@
 using Domain.Aggregates.Memberships;
 using Infrastructure.Persistence.Contexts;
 using Infrastructure.Persistence.Entities.Memberships;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Repositories.Memberships;
 
@@ -9,7 +10,10 @@ public sealed class MembershipRepository(DataContext context) : RepositoryBase<M
 {
     protected override void ApplyPropertyUpdates(MembershipEntity entity, Membership model)
     {
-        throw new NotImplementedException();
+        entity.Title = model.Title;
+        entity.Description = model.Description;
+        entity.Price = model.Price;
+        entity.MonthlyClasses = model.MonthlyClasses;
     }
 
     
@@ -26,7 +30,7 @@ public sealed class MembershipRepository(DataContext context) : RepositoryBase<M
             benefits.Add(benefit.Benefit);
         }
 
-        var model = Membership.Create(
+        var model = Membership.CreateWithId(
             entity.Id,
             entity.Title,
             entity.Description,
@@ -54,4 +58,15 @@ public sealed class MembershipRepository(DataContext context) : RepositoryBase<M
 
         return entity;
     }
+
+    public override async Task<IReadOnlyList<Membership>> GetAllAsync(CancellationToken ct = default)
+    {
+
+        var entities = await _context.Memberships
+            .Include(x => x.Benefits)
+            .AsNoTracking()
+            .ToListAsync(ct);
+
+        return [.. entities.Select(ToDomainModel)];
+    }   
 }
