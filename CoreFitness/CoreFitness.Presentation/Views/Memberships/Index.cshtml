@@ -14,12 +14,13 @@
 
             @foreach (var item in Model.Memberships)
             {
-
-                <div class="membership-card">
-                    <img src="~/images/dumbbell.svg" alt="" />
-
+                <div class="membership-cards">
+                    <div class="dumbbel-icon">
+                        <img  src="~/images/dumbbell.svg" alt="" />
+                    </div>
                     <h3>@item.Title</h3>
-                    <p>@item.Description</p>
+                    <hr />
+                    <p class="card-description">@item.Description</p>
 
                     <ul>
                         @foreach (var benefit in item.Benefits)
@@ -27,31 +28,42 @@
                             <li><img src="~/images/check-icon.svg" alt="" />@benefit</li>
                         }
                     </ul>
+                    <div class="membership-price-box">
+                        <div class="membership-price">
+                            <div class="membership-monthly">
+                                <div class="monthly-price">
+                                    <p class="price">@item.Price</p>
+                                    <p class="per">/monthly</p>
+                                </div>
+                                <p class="classes">* Monthly @item.MonthlyClasses Classes</p>
+                            </div>
 
-                    <p>@item.Price</p>
-                    <p>@item.MonthlyClasses</p>
+                            <partial name="Partials/_Button" model='new ButtonModel { Text = "Join Now", Controller = "Memberships", Action = "Index" }' />
+                        </div>
+                        <hr />
 
-                    <partial name="Partials/_Button" model='new ButtonModel { Text = "Join Now", Controller = "Memberships", Action = "Index" }' />
+                        <p>Try Any Membership Fre for 1 Week</p>
+                    </div>
                 </div>
             }
 
             <div class="membership-card">
                 <h3>Get Your Membership</h3>
                 <p class="description">Our memberships give you access to all equipment, personalized training.</p>
-                <p>Call Us At: +(46) 8 410 521 00</p>
-
-                <partial name="Partials/_Button" model='new ButtonModel { Text = "Call Us Today!", Controller = "CustomerService", Action = "Index" }' />
-
-                <img src="~/images/membership-woman.svg" alt="" />
+                <hr />
+                <p class="membership-telephone">Call Us At: +(46) 8 410 521 00</p>
+                <div class="membership-call-button">
+                    <partial name="Partials/_Button" model='new ButtonModel { Text = "Call Us Today!", Controller = "CustomerService", Action = "Index" }' />
+                </div>
+                <img class="membership-woman" src="~/images/membership-woman.svg" alt="" />
 
             </div>
         </div>
 
         <ul class="membership-subitems">
-            <li><img src="~/images/memberships-icon1.svg" alt="" />Get 30 day free trial</li>
-            <li><img src="~/images/memberships-icon2.svg" alt="" />No any hidden fees pay</li>
-            <li><img src="~/images/memberships-icon3.svg" alt="" />You can cancel anytime</li>
+            <li class="membership-subitem"><img src="~/images/memberships-icon1.svg" alt="" />Get 30 day free trial</li>
+            <li class="membership-subitem"><img src="~/images/memberships-icon2.svg" alt="" />No any hidden fees pay</li>
+            <li class="membership-subitem"><img src="~/images/memberships-icon3.svg" alt="" />You can cancel anytime</li>
         </ul>
-
     </section>
 </div>

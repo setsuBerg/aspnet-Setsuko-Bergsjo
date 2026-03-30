@@ -25,7 +25,7 @@ public sealed class MembershipRepository(DataContext context) : RepositoryBase<M
     protected override Membership ToDomainModel(MembershipEntity entity)
     {
         var benefits = new List<string>();
-        foreach (var benefit in entity.Benefits) 
+        foreach (var benefit in entity.Benefits.OrderBy(b => b.SortOrder)) 
         { 
             benefits.Add(benefit.Benefit);
         }
@@ -52,9 +52,13 @@ public sealed class MembershipRepository(DataContext context) : RepositoryBase<M
             Price = model.Price,
             MonthlyClasses = model.MonthlyClasses
         };
-
+        int i = 0;
         foreach (var benefit in model.Benefits)
-            entity.Benefits.Add(new MembershipBenefitEntity { Benefit = benefit });
+            entity.Benefits.Add(new MembershipBenefitEntity
+            {
+                Benefit = benefit,
+                SortOrder = i++
+            });
 
         return entity;
     }
