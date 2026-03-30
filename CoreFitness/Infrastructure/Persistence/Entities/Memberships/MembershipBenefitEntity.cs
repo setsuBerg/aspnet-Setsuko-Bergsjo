@@ -7,4 +7,5 @@ public sealed class MembershipBenefitEntity
     public string Benefit { get; set; } = null!;
 
     public MembershipEntity Membership { get; set; } = null!;
+    public int SortOrder { get; set; }
 }
