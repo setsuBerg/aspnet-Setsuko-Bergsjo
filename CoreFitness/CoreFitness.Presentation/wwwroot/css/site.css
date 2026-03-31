@@ -200,13 +200,14 @@ footer {
 
 .hero-section {
     border-top: 1px solid #68695e;
+    padding-bottom: 0;
 
 
     .hero-container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         align-items: center;
-        justify-items:flex-end;
+        justify-items: flex-end;
 
 
         .hero-content {
@@ -273,12 +274,46 @@ footer {
         .hero-img {
             width: 100%;
             display: block;
-            height: auto;
-            margin-left: auto;
+            align-self: end;
+            margin-top: 3.5rem;
+
+            img {
+                display: block;
+                margin-bottom: -1rem;
+            }
         }
     }
 }
 
+/* Brands section */
+.brands-container {
+    padding: 1rem 0;
+
+    .brands-items {
+        display: flex;
+        justify-content: space-between;
+        background-color: var(--bg-color-accent);
+        border-radius: 1.5rem;
+        padding: 0 2rem;
+        align-items: center;
+
+        .brands {
+            margin: 2rem;
+            display: flex;
+            align-items: center;
+
+            img {
+                margin: 0 1rem;
+            }
+        }
+
+        .brands-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+    }
+}
 
 
 
