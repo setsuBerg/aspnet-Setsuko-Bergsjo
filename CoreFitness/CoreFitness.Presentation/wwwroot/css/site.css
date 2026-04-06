@@ -1103,3 +1103,74 @@ footer {
         }
     }
 }
+
+
+/* Footer section */
+.footer-section {
+
+
+    .footer-container {
+        background-color: var(--bg-color-secondary);
+        border-radius: 2rem;
+
+        .footer-headline {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+            }
+
+            h3 {
+                font-size: 1.8rem;
+                font-weight: 600;
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+
+            .footer-location {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                max-width: 30rem;
+
+
+                .footer-description {
+                }
+
+                img {
+                    max-width: 10rem;
+                }
+
+                .footer-address {
+                }
+            }
+
+            .footer-times {
+
+
+                .working-hours {
+                }
+
+                .opening-hours {
+                }
+            }
+
+            .title {
+            }
+
+            .time {
+            }
+        }
+
+
+        hr {
+            color: var(--bg-color-accent);
+        }
+
+        .footer-copyright {
+        }
+    }
+}
