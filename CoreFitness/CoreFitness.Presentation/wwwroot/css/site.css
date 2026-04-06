@@ -12,17 +12,17 @@ body, h1, h2, h3, h4, h5, h6, p, ul, ol {
 :root {
     --font-poppins: "Poppins", sans-serif;
     --font-dm-sans: "DM Sans", sans-serif;
-
     --color-text-primary: #27252F;
     --color-text-secondary: #080517;
     --color-text-muted: #6F6F6F;
     --color-text-tertiary: #000000;
     --color-text-disabled: #E50004;
     --color-white: #FFFFFF;
-
     --bg-color-primary: #F7F7F7;
     --bg-color-secondary: #131020;
     --bg-color-accent: #D6EB31;
+
+    --horizon-color: rgba(214, 235, 49, 0.2);
 }
 
 body {
@@ -53,11 +53,7 @@ header {
 }
 
 footer {
-    background-color: var(--bg-color-secondary);
     color: var(--color-white);
-    text-align: center;
-    border-radius: 1.25rem;
-    padding: 1rem;
 }
 
 .btn {
@@ -259,7 +255,8 @@ footer {
             }
 
             .horizon-line {
-                border-top: 1px solid #68695e;
+                border: 0;
+                border-top: 1px solid var(--horizon-color);
             }
 
             .btn {
@@ -650,8 +647,6 @@ footer {
 /* Memberships */
 .memberships-container {
 
-
-
     .membership-section {
         max-width: 1250px;
         margin: 0 auto;
@@ -699,6 +694,8 @@ footer {
                 }
 
                 hr {
+                    border: 0;
+                    border-top: 1px solid var(--horizon-color);
                     margin: 1.5rem 0;
                 }
 
@@ -758,7 +755,8 @@ footer {
                     }
 
                     .hr {
-                        color: var(--color-text-primary);
+                        border: 0;
+                        border-top: 2px solid var(--color-text-muted);
                     }
                 }
             }
@@ -791,7 +789,8 @@ footer {
 
                 hr {
                     width: 100%;
-                    color: var(--color-text-primary);
+                    border: 0;
+                    border-top: 1px solid var(--horizon-color);
                     margin: 1.5rem 0;
                 }
 
@@ -1099,6 +1098,111 @@ footer {
 
             .product-link {
                 text-decoration: underline;
+            }
+        }
+    }
+}
+
+
+/* Footer section */
+.footer-section {
+    margin: 1.5rem;
+
+    .footer-wrapper {
+        max-width: 1320px;
+        margin: 0 auto;
+        background-color: var(--bg-color-secondary);
+        border-radius: 2rem;
+        padding: 0 4rem;
+
+        .footer-container {
+            padding: 1rem 3rem;
+
+
+            .footer-headline {
+                display: flex;
+                justify-content: space-between;
+                text-align: right;
+                padding: 2.5rem 0 0;
+
+
+                a {
+                }
+
+                h3 {
+                    font-size: 1.8rem;
+                    font-weight: 500;
+
+
+                    span {
+                        display: block;
+                    }
+                }
+            }
+
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                padding: 1.5rem 0;
+
+                .footer-location {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    max-width: 28rem;
+
+
+                    .footer-description {
+                        font-family: var(--font-dm-sans);
+                        margin-bottom: 2rem;
+                    }
+
+                    img {
+                        max-width: 10rem;
+                        margin-bottom: 1rem;
+                    }
+
+                    .footer-address {
+                        font-family: var(--font-dm-sans);
+                    }
+                }
+
+                .footer-times {
+                    text-align: right;
+
+
+                    .working-hours {
+                        font-family: var(--font-dm-sans);
+                        margin-bottom: 3rem;
+                    }
+
+                    .opening-hours {
+                        font-family: var(--font-dm-sans);
+                    }
+                }
+
+                .title {
+                    font-weight: 600;
+                    margin-bottom: 1.2rem;
+                    margin-right: 1rem;
+                }
+
+                .time {
+                    font-weight: 400;
+                    font-family: var(--font-dm-sans);
+                    margin: 1rem;
+                }
+            }
+
+            hr {
+                border: 0;
+                border-top: 1px solid var(--horizon-color);
+                margin: 2.5rem 0;
+            }
+
+            .footer-copyright {
+                text-align: center;
+                margin: 2rem;
             }
         }
     }
