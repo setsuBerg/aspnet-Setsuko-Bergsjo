@@ -1,12 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AspNetCoreGeneratedDocument;
+using CoreFitness.Presentation.Models.Memberships;
+using Infrastructure.Persistence.Contexts;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreFitness.Presentation.Controllers;
 
-public class CustomerServiceController : Controller
+public class CustomerServiceController(DataContext context) : Controller
 {
     [HttpGet("support")]
-    public IActionResult Support()
+    public async Task<IActionResult> Support() 
     {
-        return View();
+        var faqs = await context.Faqs.ToListAsync();
+        var viewModel = new MembershipViewModel();
+
+        viewModel.Faqs = faqs.Select(x => new FaqItemViewModel
+        {
+            Title = x.Title,
+            Description = x.Description
+        }).ToList();
+
+        return View(viewModel);
     }
 }
