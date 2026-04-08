@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Identity;
 using Infrastructure.Persistence.Entities.Members;
 using Infrastructure.Persistence.Entities.Memberships;
+using Infrastructure.Persistence.Entities.Memberships.Faqs;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,4 +19,6 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
 
     public DbSet<MembershipEntity> Memberships => Set<MembershipEntity>();
     public DbSet<MembershipBenefitEntity> MembershipBenefits => Set<MembershipBenefitEntity>();
+
+    public DbSet<FaqEntity> Faqs => Set<FaqEntity>();
 }

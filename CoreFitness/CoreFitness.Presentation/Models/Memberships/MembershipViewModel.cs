@@ -6,4 +6,6 @@ public class MembershipViewModel
 {
     public IEnumerable<Membership> Memberships { get; set; } = [];
 
+    public List<FaqItemViewModel> Faqs { get; set; } = [];
+
 }

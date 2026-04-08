@@ -7,8 +7,8 @@
 
 <div class="memberships-container">
 
+    <!-- Membership cards section -->
     <partial name="Partials/_PageTitleSection" />
-
     <section class="membership-section">
         <div class="membership-access">
 
@@ -56,7 +56,6 @@
                     <partial name="Partials/_Button" model='new ButtonModel { Text = "Call Us Today!", Controller = "CustomerService", Action = "Index" }' />
                 </div>
                 <img class="membership-woman" src="~/images/membership-woman.svg" alt="" />
-
             </div>
         </div>
 
@@ -66,4 +65,25 @@
             <li class="membership-subitem"><img src="~/images/memberships-icon3.svg" alt="" />You can cancel anytime</li>
         </ul>
     </section>
+
+    <!-- Membership Faqs section -->
+    <partial name="Partials/_FaqSection" model="Model" />
 </div>
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.faq-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const faqItem = button.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+
+                    document.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
+
+                    if (!isActive) {
+                        faqItem.classList.add('active'); 
+                    }
+                });
+            });
+        });
+    </script>
+}

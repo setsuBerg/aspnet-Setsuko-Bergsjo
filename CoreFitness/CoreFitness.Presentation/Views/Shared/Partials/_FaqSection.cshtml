@@ -1,0 +1,37 @@
+﻿@model MembershipViewModel
+
+<!-- Membership Faqs section -->
+<section class="faq-section">
+    <div class="faq-container">
+        <div class="faq-image">
+            <img src="~/images/faqs-image.svg" alt="" />
+        </div>
+
+        <div class="faq-content">
+            <h2><span class="dot">•</span>Frequently Asked Questions</h2>
+            <h3>Common questions about gym and training</h3>
+
+
+            @{
+                var i = 1;
+            }
+            <div class="faq-items">
+                @foreach (var item in Model.Faqs)
+                {
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>Q@(i++). @item.Title</span>
+                            <span class="faq-img">
+                                <img class="faq-icon" src="~/images/chevron-down.svg" alt="" />
+                            </span>
+                        </button>
+                        <hr />
+                        <div class="faq-answer">
+                            <p>@item.Description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
