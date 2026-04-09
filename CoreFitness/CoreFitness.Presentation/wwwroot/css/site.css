@@ -393,13 +393,8 @@ footer {
 }
 
 
-
-
-
 /* My Account - About Me */
-
 .container {
-
 
     .my-account-section {
         max-width: 1300px;
@@ -642,8 +637,6 @@ footer {
 }
 
 
-
-
 /* Memberships */
 .memberships-container {
 
@@ -833,8 +826,6 @@ footer {
     }
 }
 
-
-
 /* layouts */
 .app-layout {
     display: grid;
@@ -849,9 +840,6 @@ footer {
     height: 100vh;
     padding: 1rem;
 }
-
-
-
 
 /* SignIn, SignUp, SetPassword Pages */
 
@@ -1308,6 +1296,96 @@ footer {
     }
 }
 
-.customerservice-section {
 
+/* Customer Service, Contact Us section */
+.customerservice-section {
+    display: flex;
+    gap: 2rem;
+    align-items: stretch;
+    max-width: 1320px;
+    margin: 0 auto;
+
+    .customer-image {
+        position: relative;
+
+        .customer-woman {
+            height: 100%;
+        }
+
+        .service-information {
+            position: absolute;
+            bottom: 3rem;
+            left: 2.5rem;
+            right: 2.5rem;
+            color: var(--color-white);
+            display: flex;
+            justify-content: center;
+            background: rgba(64, 64, 64, 0.75);
+            border-radius: 1rem;
+            padding: 2rem;
+            gap: 3rem;
+
+            .phone-side {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+            }
+
+            .email-side {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+            }
+
+            .phone-number .icon-text,
+            .email-address .icon-text {
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .icon-circle {
+                background-color: var(--bg-color-accent);
+                border-radius: 50%;
+                width: 3rem;
+                height: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+
+    .customer-card {
+        flex: 1;
+        background-color: palevioletred;
+        border-radius: 0 1rem 1rem 0;
+        padding: 5rem;
+        margin-left: -2rem;
+
+        .contact-us-body {
+
+            .contact-title {
+
+                h2 {
+                    font-size: 1.8rem;
+                    font-weight: 600;
+                }
+
+                h3 {
+                    font-family: var(--font-dm-sans);
+                    font-size: 1rem;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .contact-forms {
+
+            .form-label {
+                font-size: .8rem;
+                font-weight: 600;
+            }
+        }
+    }
+}
 }
