@@ -1,4 +1,5 @@
-﻿@model MembershipViewModel
+﻿@using CoreFitness.Presentation.Models.CustomerService
+@model CustomerServiceViewModel
 @{
     ViewData["Title"] = "Customer Service";
 }
@@ -8,10 +9,75 @@
     <partial name="Partials/_PageTitleSection" />
 
     <section class="customerservice-section">
+        <!-- Customer Service image side -->
+        <div class="customer-image">
+            <img class="customer-woman" src="~/images/contact-us-image.svg" alt="Gym woman" />
+            <div class="service-information">
+                <div class="phone-side">
+                    <img class="support-phone" src="~/images/phone-icon.svg" alt="" />
+                    <div class="phone-number">
+                        <p>Phone Number</p>
+                        <p>+(46) 8 410 521 00</p>
+                    </div>
+                </div>
+                <div class="email-side">
+                    <img class="support-mail" src="~/images/mail-icon.svg" alt="" />
+                    <div class="email-address">
+                        <p>Email Address</p>
+                        <p>info@corefitness.se</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Customer Service form side -->
+        <div class="customer-card">
+            <div class="contact-us-body">
+                <div class="contact-title">
+                    <h2>Contact Us Today</h2>
+                    <h3>Ready to begin your fitness journey? Contact GymPro today and let our expert trainers guide you with the right program and support.</h3>
+                </div>
+                <div class="contact-forms">
+                    @if (TempData["Success"] != null)
+                    {
+                        <p class="success-message">@TempData["Success"]</p>
+                    }
+                    <form method="post" asp-controller="CustomerService" asp-action="Support" novalidate>
+                        @Html.AntiForgeryToken()
 
-        
+                        <div class="contact-us-firstname">
+                            <label class="form-label" asp-for="FormData.FirstName"></label>
+                            <input class="form-control" asp-for="FormData.FirstName" />
+                            <span asp-validation-for="FormData.FirstName"></span>
+                        </div>
+                        <div class="contact-us-lastname">
+                            <label class="form-label" asp-for="FormData.LastName"></label>
+                            <input class="form-control" asp-for="FormData.LastName" />
+                            <span asp-validation-for="FormData.LastName"></span>
+                        </div>
+                        <div class="contact-us-email">
+                            <label class="form-label" asp-for="FormData.Email"></label>
+                            <input class="form-control" asp-for="FormData.Email" />
+                            <span asp-validation-for="FormData.Email"></span>
+                        </div>
+                        <div class="contact-us-phonenumber">
+                            <label class="form-label" asp-for="FormData.PhoneNumber"></label>
+                            <input class="form-control" asp-for="FormData.PhoneNumber" />
+                            <span asp-validation-for="FormData.PhoneNumber"></span>
+                        </div>
+                        <div class="contact-us-message">
+                            <label class="form-label" asp-for="FormData.Message"></label>
+                            <textarea class="form-control" asp-for="FormData.Message"></textarea>
+                            <span asp-validation-for="FormData.Message"></span>
+                        </div>
+
+                        <button class="btn" type="submit">Submit Message<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- Membership Faqs section -->
-    <partial name="Partials/_FaqSection" model="Model" />
+
+    <!-- Faqs section -->
+    <partial name="Partials/_FaqSection" model="Model.Faqs" />
 </div>
