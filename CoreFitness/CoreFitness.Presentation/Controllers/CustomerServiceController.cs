@@ -1,4 +1,4 @@
-﻿using AspNetCoreGeneratedDocument;
+﻿using CoreFitness.Presentation.Models.CustomerService;
 using CoreFitness.Presentation.Models.Memberships;
 using Infrastructure.Persistence.Contexts;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,7 @@ public class CustomerServiceController(DataContext context) : Controller
     public async Task<IActionResult> Support() 
     {
         var faqs = await context.Faqs.ToListAsync();
-        var viewModel = new MembershipViewModel();
+        var viewModel = new CustomerServiceViewModel();
 
         viewModel.Faqs = faqs.Select(x => new FaqItemViewModel
         {
@@ -21,5 +21,16 @@ public class CustomerServiceController(DataContext context) : Controller
         }).ToList();
 
         return View(viewModel);
+    }
+
+    [HttpPost("support")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Support(CustomerServiceViewModel model)
+    {
+        if (!ModelState.IsValid)
+            return View(model);
+
+        TempData["Success"] = "Message sent successfully!";
+        return RedirectToAction("Support");
     }
 }

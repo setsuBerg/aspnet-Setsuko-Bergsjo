@@ -1,4 +1,4 @@
-﻿@model MembershipViewModel
+﻿@model IEnumerable<FaqItemViewModel>
 
 <!-- Membership Faqs section -->
 <section class="faq-section">
@@ -16,7 +16,7 @@
                 var i = 1;
             }
             <div class="faq-items">
-                @foreach (var item in Model.Faqs)
+                @foreach (var item in Model)
                 {
                     <div class="faq-item">
                         <button class="faq-question" type="button">
