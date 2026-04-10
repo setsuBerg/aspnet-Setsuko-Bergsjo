@@ -25,6 +25,8 @@ app.UseHsts();
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseStatusCodePagesWithReExecute("/Errors/NotFound");
+
 app.UseSession();
 app.UseAuthentication();
 app.UseAuthorization();

@@ -1091,7 +1091,6 @@ footer {
     }
 }
 
-
 /* Footer section */
 .footer-section {
     margin: 1.5rem;
@@ -1112,10 +1111,6 @@ footer {
                 justify-content: space-between;
                 text-align: right;
                 padding: 2.5rem 0 0;
-
-
-                a {
-                }
 
                 h3 {
                     font-size: 1.8rem;
@@ -1196,11 +1191,9 @@ footer {
     }
 }
 
-
 /* Membership Faqs section */
 .faq-section {
     margin: 8rem;
-
 
     .faq-container {
         max-width: 1320px;
@@ -1434,6 +1427,33 @@ footer {
                     content: " *";
                 }
             }
+        }
+    }
+}
+
+/* 404 Not Found section */
+.not-found-section {
+    margin: 8rem auto;
+
+    .not-found-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .error-text {
+            margin-bottom: 3.2rem;
+            font-family: var(--font-dm-sans);
+        }
+
+        .not-found-btn a {
+            padding: 1.2rem 1.8rem;
+            width: fit-content;
         }
     }
 }
