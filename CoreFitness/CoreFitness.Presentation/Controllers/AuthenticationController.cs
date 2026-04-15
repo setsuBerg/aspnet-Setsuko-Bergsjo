@@ -3,11 +3,13 @@ using Application.Members.Abstractions;
 using Application.Members.Inputs;
 using CoreFitness.Presentation.Models.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity;
+using Infrastructure.Identity;
 
 namespace CoreFitness.Presentation.Controllers;
 
 [Route("authentication")]
-public class AuthenticationController(IRegisterMemberService registerMemberService, ISignInMemberService signInMemberService, IIdentityService identityService) : Controller
+public class AuthenticationController(IRegisterMemberService registerMemberService, ISignInMemberService signInMemberService, IIdentityService identityService, UserManager<ApplicationUser> userManager) : Controller
 
 {
     private const string RegistrationEmailSessionKey = "RegistrationEmail";
@@ -58,6 +60,13 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
         if (!ModelState.IsValid)
             return View(form);
 
+        var existingUser = await userManager.FindByEmailAsync(form.Email);
+        if (existingUser != null)
+        {
+            ModelState.AddModelError("Email", "Email already exists");
+            return View(form);
+        }
+
         HttpContext.Session.SetString(RegistrationEmailSessionKey, form.Email);
 
         return RedirectToAction(nameof(SetPassword));
@@ -75,7 +84,6 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
     }
 
     [HttpPost("set-password")]
-
     public async Task<IActionResult> SetPassword(RegisterPasswordForm form, CancellationToken ct = default)
     {
         try
@@ -91,10 +99,9 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
             var registerResult = await registerMemberService.ExecuteAsync(registerMemberInput, ct);
             if (!registerResult.Success)
             {
-                return Content(registerResult.ErrorMessage + " | " + registerResult);
 
-                /*ViewData["ErrorMessage"] = registerResult.ErrorMessage;
-                return View(form);*/
+                ViewData["ErrorMessage"] = registerResult.ErrorMessage;
+                return View(form);
             }
 
             var signInMemberInput = new SignInInput(email, form.Password, false);
@@ -113,6 +120,5 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
         {
             return Content(ex.ToString());
         }
-    }
-        
+    }     
 }

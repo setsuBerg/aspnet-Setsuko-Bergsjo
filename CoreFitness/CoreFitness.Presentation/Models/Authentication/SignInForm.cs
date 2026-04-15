@@ -5,6 +5,7 @@ namespace CoreFitness.Presentation.Models.Authentication;
 public class SignInForm
 {
     [Required(ErrorMessage = " Email address is Required")]
+    [EmailAddress(ErrorMessage = "Invalid email format")]
     [Display(Name = "Email Adress", Prompt = "Enter Email Address")]
     public string Email { get; set; } = null!;
 
