@@ -46,6 +46,7 @@ public class AccountController
     }
 
     [HttpPost("my")]
+    [ValidateAntiForgeryToken]
 
     public async Task<IActionResult> My(MyAccountViewModel viewModel, CancellationToken ct = default)
     {
