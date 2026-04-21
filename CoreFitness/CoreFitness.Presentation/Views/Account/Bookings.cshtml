@@ -1,0 +1,36 @@
+﻿@model IEnumerable<dynamic>
+
+@{
+    ViewData["Title"] = "My Bookings";
+}
+<div class="my-bookings-section">
+    <partial name="Partials/_PageTitleSection" />
+    <div class="my-bookings-container">
+        @if (!Model.Any())
+        {
+            <p>No bookings found.</p>
+        }
+        else
+        {
+            <div class="my-booking-cards">
+                @foreach (var item in Model)
+                {
+                    <div class="my-booking-card">
+                        <p>@item.TrainingClass.Category</p>
+                        <h3>@item.TrainingClass.CourseName</h3>
+                        <hr />
+                        <p>@item.TrainingClass.Date.ToString("yyyy-MM-dd")</p>
+                        <p>@item.TrainingClass.Time.ToString(@"hh\:mm")</p>
+                        <p>@item.TrainingClass.Instructor</p>
+
+                        <form asp-controller="Account" asp-action="CancelBooking" method="post">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@item.Booking.Id" />
+                            <button type="submit" class="btn">Cancel Booking<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+                        </form>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>

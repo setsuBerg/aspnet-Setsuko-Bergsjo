@@ -3,6 +3,7 @@ using Application.Members.Abstractions;
 using Application.Members.Inputs;
 using CoreFitness.Presentation.Models.Account;
 using Infrastructure.Identity;
+using Infrastructure.Persistence.Contexts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace CoreFitness.Presentation.Controllers;
 [Route("account")]
 public class AccountController
     (
+        DataContext context,
         UserManager<ApplicationUser> userManager,
         IGetMemberProfileService getMemberProfileService,
         IUpdateMemberProfileService updateMemberProfileService,
@@ -47,7 +49,6 @@ public class AccountController
 
     [HttpPost("my")]
     [ValidateAntiForgeryToken]
-
     public async Task<IActionResult> My(MyAccountViewModel viewModel, CancellationToken ct = default)
     {
         var user = await userManager.GetUserAsync(User);
@@ -93,5 +94,47 @@ public class AccountController
         await userManager.DeleteAsync (user);
         await identityService.SignOutAsync();
         return RedirectToAction("Index", "Home");
+    }
+
+    [HttpGet("bookings")]
+    public IActionResult Bookings()
+    {
+        var userId = userManager.GetUserId(User);
+        if (userId is null)
+            return Challenge();
+
+        var bookings = context.Bookings
+            .Where(x => x.UserId == userId)
+            .Join(context.TrainingClasses,
+                  booking => booking.TrainingClassId,
+                  trainingClass => trainingClass.Id,
+                  (booking, trainingClass) => new { Booking = booking, TrainingClass = trainingClass })
+            .ToList();
+
+        return View(bookings);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult CancelBooking(string id)
+    {
+        var userId = userManager.GetUserId(User);
+        if (userId is null)
+            return Challenge();
+        var booking = context.Bookings.FirstOrDefault(x => x.Id == id && x.UserId == userId);
+        if (booking is null)
+            return NotFound();
+        context.Bookings.Remove(booking);
+        context.SaveChanges();
+        return RedirectToAction("Bookings");
+    }
+
+
+
+    [HttpGet("membership")]
+    public IActionResult Membership()
+    {
+        
+        return View();
     }
 }
