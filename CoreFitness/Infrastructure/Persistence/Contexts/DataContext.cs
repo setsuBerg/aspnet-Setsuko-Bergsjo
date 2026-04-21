@@ -1,7 +1,10 @@
-﻿using Infrastructure.Identity;
+﻿using Domain.Aggregates.TrainingClasses;
+using Infrastructure.Identity;
+using Infrastructure.Persistence.Entities.Bookings;
 using Infrastructure.Persistence.Entities.Members;
 using Infrastructure.Persistence.Entities.Memberships;
 using Infrastructure.Persistence.Entities.Memberships.Faqs;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,4 +24,10 @@ public class DataContext(DbContextOptions<DataContext> options) : IdentityDbCont
     public DbSet<MembershipBenefitEntity> MembershipBenefits => Set<MembershipBenefitEntity>();
 
     public DbSet<FaqEntity> Faqs => Set<FaqEntity>();
+
+    public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+    public DbSet<IdentityRole> IdentityRoles => Set<IdentityRole>();
+    public DbSet<TrainingClass> TrainingClasses => Set<TrainingClass>();
+    public DbSet<BookingEntity> Bookings => Set<BookingEntity>();
+
 }

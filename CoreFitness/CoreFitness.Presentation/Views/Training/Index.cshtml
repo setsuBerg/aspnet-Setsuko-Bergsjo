@@ -1,1 +1,37 @@
-﻿<h1>Training</h1>
+﻿@using Domain.Aggregates.TrainingClasses
+@model List<TrainingClass>
+
+@{
+    ViewData["Title"] = "Training Class";
+}
+<!-- Training cards section -->
+<div class="training-section">
+    <partial name="Partials/_PageTitleSection" />
+
+    @if (TempData["BookingMessage"] != null)
+    {
+        <div class="booking-message">
+            @TempData["BookingMessage"]
+        </div>
+    }
+
+    <div class="training-container">
+        <div class="training-cards">
+
+            @foreach (var item in Model)
+            {
+                <div class="training-card">
+                    <p>@item.Category</p>
+                    <h3>@item.CourseName</h3>
+                    <hr />
+                    <p>@item.Date.ToString("yyyy-MM dd")</p>
+                    <p>@item.Time.ToString(@"hh\:mm")</p>
+                    <p>@item.Instructor</p>  
+                    <div class="btn">
+                        <partial name="Partials/_Button" model='new ButtonModel { Text = "Book Now", Controller = "Training", Action = "Book", RouteId = @item.Id }' />
+                    </div>
+                </div>
+            }   
+        </div>
+    </div>
+</div>

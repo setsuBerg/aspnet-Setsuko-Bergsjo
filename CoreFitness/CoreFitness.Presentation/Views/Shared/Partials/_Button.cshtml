@@ -1,7 +1,7 @@
 ﻿@using CoreFitness.Presentation.Models
 @model ButtonModel
 
-<a asp-controller="@Model.Controller" asp-action="@Model.Action" class="btn">
+<a asp-controller="@Model.Controller" asp-action="@Model.Action" asp-route-id="@Model.RouteId" class="btn">
     @Model.Text
     <img src="~/images/arrow-right.svg" alt="arrow-right" />
 </a>

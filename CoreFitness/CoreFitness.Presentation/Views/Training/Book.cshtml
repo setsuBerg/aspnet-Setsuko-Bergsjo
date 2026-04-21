@@ -1,0 +1,25 @@
+﻿@using Domain.Aggregates.TrainingClasses
+@model TrainingClass
+
+@{
+    ViewData["Title"] = "Book Training";
+}
+
+<div class="book-confirm-section">
+    <partial name="Partials/_PageTitleSection" />
+    <div class="book-container">
+
+        <p>@Model.Category</p>
+        <h2>@Model.CourseName</h2>
+        <hr />
+        <p>@Model.Date.ToString("yyyy-MM dd")</p>
+        <p>@Model.Time.ToString(@"hh\:mm")</p>
+        <p>@Model.Instructor</p>
+
+        <form asp-controller="Training" asp-action="Book" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" value="@Model.Id" />
+            <button type="submit" class="btn">Confirm Booking<img src="~/images/arrow-right.svg" alt="arrow-right" /></button>
+        </form>
+    </div>
+</div>

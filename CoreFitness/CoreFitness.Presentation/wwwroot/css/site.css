@@ -1429,3 +1429,156 @@ footer {
         }
     }
 }
+
+/* Training Class */
+.training-section {
+    margin: 5rem auto;
+
+    .training-container {
+        max-width: 1250px;
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        .training-cards {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            padding: 0 1rem;
+            gap: 3rem;
+
+            @media (width >= 768px) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media (width >= 1300px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .training-card {
+            background-color: var(--bg-color-secondary);
+            border-radius: 1rem;
+            padding: 1.8rem;
+            color: var(--color-white);
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            h3 {
+                min-height: 2rem;
+                font-size: 1.4rem;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: .5rem .7rem;
+                align-self: flex-end;
+            }
+
+            hr {
+                border: 0;
+                border-top: 1px solid var(--horizon-color);
+                margin: 1.5rem 0;
+            }
+        }
+    }
+}
+
+/* Booking Message */
+.booking-message {
+    background-color: var(--bg-color-accent);
+    color: var(--color-text-disabled);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    font-size: 1.5rem;
+    font-weight: 500;
+    justify-content: center;
+    max-width: 600px;
+}
+
+/* Book Training */
+.book-confirm-section {
+    padding: 2rem 1rem;
+
+    .book-container {
+        background-color: var(--bg-color-secondary);
+        color: var(--color-white);
+        border-radius: 1rem;
+        padding: 1.8rem;
+        max-width: 25rem;
+        margin: 0 auto;
+
+        hr {
+            width: 100%;
+            border: 0;
+            border-top: 1px solid var(--horizon-color);
+            margin: 1.5rem 0;
+        }
+
+        .btn {
+            padding: .8rem .7rem;
+            display: inline-block;
+        }
+    }
+}
+
+/* My Bookings */
+.my-bookings-section {
+    margin: 5rem auto;
+
+    .my-bookings-container {
+        max-width: 1320px;
+        margin: 0 auto;
+
+        .my-booking-cards {
+            display: grid;
+            gap: 3rem;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            padding: 0 1rem;
+
+            @media (width >= 768px) {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media (width >= 1300px) {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+
+            .my-booking-card {
+                background-color: var(--bg-color-secondary);
+                color: var(--color-white);
+                border-radius: 1rem;
+                padding: 1.8rem;
+                display: flex;
+                flex-direction: column;
+                gap: .8rem;
+                height: 100%;
+                width: 100%;
+
+                hr {
+                    width: 100%;
+                    border: 0;
+                    border-top: 1px solid var(--horizon-color);
+                    margin: 1.5rem 0;
+                }
+
+                .btn {
+                    padding: .8rem .7rem;
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}
+.book-confirm-section form,
+.my-bookings-section form {
+    display: flex;
+    justify-content: flex-end;
+}
