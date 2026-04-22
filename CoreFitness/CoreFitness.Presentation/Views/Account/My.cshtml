@@ -88,7 +88,11 @@
                     <hr />
                     <div class="form-group">
                         <label class="form-label" asp-for="AboutMeForm.ProfileImageUri"></label>
-                        <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" />
+                        <div class="profile-upload">
+                            <input class="form-input" asp-for="AboutMeForm.ProfileImageUri" placeholder="Upload Profile Image" readonly />
+                            <label class="profile-label" for="profileImageFile">Browse</label>
+                            <input id="profileImageFile" type="file" hidden />
+                        </div>
                         <span class="field-validation-error" asp-validation-for="AboutMeForm.ProfileImageUri"></span>
                     </div>
 

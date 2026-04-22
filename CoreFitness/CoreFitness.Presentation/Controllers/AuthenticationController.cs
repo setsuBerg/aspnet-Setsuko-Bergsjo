@@ -120,5 +120,11 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
         {
             return Content(ex.ToString());
         }
-    }     
+    }
+
+    [HttpGet("forgot-password")]
+    public IActionResult ForgotPassword()
+    {
+        return View();
+    }
 }

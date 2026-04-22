@@ -564,6 +564,24 @@ footer {
                             margin-left: .6rem;
                         }
                     }
+
+                    .profile-upload {
+                        position: relative;
+
+                        .profile-label {
+                            position: absolute;
+                            right: 1rem;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background-color: #D9D9D9;
+                            border-radius: .5rem;
+                            padding: .4rem .8rem;
+                            cursor: pointer;
+                            font-size: .8rem;
+                            font-family: var(--font-dm-sans);
+                            font-weight: 600;
+                        }
+                    }
                 }
             }
 
@@ -879,7 +897,6 @@ footer {
         flex-direction: column;
         margin-bottom: 1rem;
 
-
         .password-header {
             display: flex;
             justify-content: space-between;
@@ -891,6 +908,10 @@ footer {
                 font-size: .8rem;
                 color: var(--bg-color-accent);
             }
+        }
+        .field-validation-error {
+            color: var(--color-text-disabled);
+            font-size: .8rem;
         }
     }
 
@@ -1398,6 +1419,10 @@ footer {
                 .contact-us-message .form-label::after {
                     content: " *";
                 }
+            }
+            .field-validation-error {
+                color: var(--color-text-disabled);
+                font-size: .8rem;
             }
         }
     }

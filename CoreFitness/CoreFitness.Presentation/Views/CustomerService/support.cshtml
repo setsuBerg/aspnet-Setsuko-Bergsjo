@@ -53,21 +53,21 @@
                             <div class="form-group">
                                 <label class="form-label" asp-for="FormData.FirstName"></label>
                                 <input class="form-control" asp-for="FormData.FirstName" />
-                                <span asp-validation-for="FormData.FirstName"></span>
+                                <span class="field-validation-error" asp-validation-for="FormData.FirstName"></span>
                             </div>
                         </div>
                         <div class="contact-us-lastname">
                             <div class="form-group">
                                 <label class="form-label" asp-for="FormData.LastName"></label>
                                 <input class="form-control" asp-for="FormData.LastName" />
-                                <span asp-validation-for="FormData.LastName"></span>
+                                <span class="field-validation-error" asp-validation-for="FormData.LastName"></span>
                             </div>
                         </div>
                         <div class="contact-us-email">
                             <div class="form-group">
                                 <label class="form-label" asp-for="FormData.Email"></label>
                                 <input class="form-control" asp-for="FormData.Email" />
-                                <span asp-validation-for="FormData.Email"></span>
+                                <span class="field-validation-error" asp-validation-for="FormData.Email"></span>
                             </div>
                         </div>
                         <div class="contact-us-phonenumber">
@@ -81,7 +81,7 @@
                             <div class="form-group">
                                 <label class="form-label" asp-for="FormData.Message"></label>
                                 <textarea class="form-control" asp-for="FormData.Message"></textarea>
-                                <span asp-validation-for="FormData.Message"></span>
+                                <span class="field-validation-error" asp-validation-for="FormData.Message"></span>
                             </div>
                         </div>
 
