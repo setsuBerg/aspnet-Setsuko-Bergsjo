@@ -12,7 +12,13 @@
             <ul class="menu">
                 <li class="menu-item"><a asp-controller="FitnessCenters" asp-action="Index">Fitness Centers</a></li>
                 <li class="menu-item"><a asp-controller="Memberships" asp-action="Index">Memberships</a></li>
-                <li class="menu-item"><a asp-controller="Training" asp-action="Index">Training</a></li>
+                <li class="menu-item dropdown">
+                    <a class="menu-training" asp-controller="Training" asp-action="Index">Training</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="menu-training" asp-controller="Training" asp-action="Index">Personal Training</a></li>
+                        <li><a class="menu-training" asp-controller="Training" asp-action="Index">Group Training</a></li>
+                    </ul>
+                </li>
                 <li class="menu-item"><a asp-controller="CustomerService" asp-action="Support">Customer Service</a></li>
                 <li class="menu-item"><a asp-controller="Store" asp-action="Index">Store</a></li>
             </ul>
