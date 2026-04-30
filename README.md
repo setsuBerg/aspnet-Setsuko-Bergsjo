@@ -26,7 +26,7 @@ This project was challenging, especially working with ASP.NET Core and understan
 Because of limited time, the focus was on making the application work correctly while keeping a clear structure as much as possible. 
 Responsive design improvements are in progress and will be further refined as time allows.
 
-Through this project, my understanding improved, especially in how different parts of an application work together and how to organize code more effectively.
+Through this project, I improved my understanding of how different parts of an application work together and how to organize code more effectively.
 
 It also became clear that as projects grow more complex, it is important to write notes and break problems into smaller parts.
 
