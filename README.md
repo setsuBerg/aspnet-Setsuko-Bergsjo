@@ -23,9 +23,10 @@ The goal was to build a gym portal where users can:
 
 This project was challenging, especially working with ASP.NET Core and understanding how everything connects.
 
-Because of limited time, the focus was on making the application work correctly while keeping a clear structure as much as possible.
+Because of limited time, the focus was on making the application work correctly while keeping a clear structure as much as possible. 
+Responsive design improvements are in progress and will be further refined as time allows.
 
-Through this project, understanding improved on how different parts of an application work together and how to organize code better.
+Through this project, my understanding improved, especially in how different parts of an application work together and how to organize code more effectively.
 
 It also became clear that as projects grow more complex, it is important to write notes and break problems into smaller parts.
 
