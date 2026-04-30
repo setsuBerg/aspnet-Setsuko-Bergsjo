@@ -61,6 +61,7 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
             return View(form);
 
         var existingUser = await userManager.FindByEmailAsync(form.Email);
+
         if (existingUser != null)
         {
             ModelState.AddModelError("Email", "Email already exists");
@@ -116,9 +117,10 @@ public class AuthenticationController(IRegisterMemberService registerMemberServi
             HttpContext.Session.Remove(RegistrationEmailSessionKey);
             return RedirectToAction("My", "Account");
         }
-        catch (Exception ex) 
+        catch (Exception) 
         {
-            return Content(ex.ToString());
+            ViewData["ErrorMessage"] = "Something went wrong. Please try again.";
+            return View(form);
         }
     }
 
